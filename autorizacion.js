@@ -18,10 +18,7 @@ const salir = document.getElementById('btnCS');
             console.log(err);
         });
     });
-    
-    function CerrarS() {
-        window.location = 'Index2.html';
-    }
+
 
 
 
