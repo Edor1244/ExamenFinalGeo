@@ -132,7 +132,28 @@
         }
     </script>
 
+<div id="paises"></div>
+<script>
 
+    var paises = document.getElementById("paises");
+    fetch('datos.json')
+    .then( function(response){
+
+        response.json().then( function(datos){
+
+            datos.forEach( registro => {
+                console.log(registro.country);
+                let nombre = document.createElement("p");
+                nombre.textContent = "País: " + registro.country + ", casos:" + registro.cases;
+                paises.appendChild(nombre);
+            });
+            
+
+        });
+
+    });
+
+</script>
 <script src="autorizacion.js"></script>
 <script src="index2.js"></script>
 </body>
