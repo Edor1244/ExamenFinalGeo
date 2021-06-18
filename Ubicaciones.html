@@ -132,20 +132,20 @@
         }
     </script>
 
-<div id="paises"></div>
+<div id="restaurantes"></div>
 <script>
 
-    var paises = document.getElementById("paises");
+    var restaurantes = document.getElementById("restaurantes");
     fetch('datos.json')
     .then( function(response){
 
         response.json().then( function(datos){
 
             datos.forEach( registro => {
-                console.log(registro.country);
+                console.log(registro.Restaurante);
                 let nombre = document.createElement("p");
-                nombre.textContent = "País: " + registro.country + ", casos:" + registro.cases;
-                paises.appendChild(nombre);
+                nombre.textContent = "Restaurante: " + registro.Restaurante + ", Direccion:" + registro.Direccion;
+                restaurantes.appendChild(nombre);
             });
             
 
