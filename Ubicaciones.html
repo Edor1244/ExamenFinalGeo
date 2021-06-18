@@ -128,18 +128,37 @@
 
         AOS.init();
 
-        function iniciaMapa() {
-            var coordenadas = {
-                lat: 19.39150, lng: -99.03970
-            }
+        var info2 = "<h1>La Reina del Pibil</h1>"
 
-            var map = new google.maps.Map(document.getElementById('mapa'),
-                {
-                    center: coordenadas,
-                    zoom: 15
-                }
-            );
+function iniciaMapa() {
+    var propiedades = {
+        center: {
+         lat: 19.39150,
+                lng: -99.03970
+        },
+        zoom: 13
+    };
+    const mapa = document.getElementById("map")
+    const map = new google.maps.Map(mapa, propiedades)
+      
+        let propiedadesMarcador2 = {
+            position: {
+                lat: 19.39150,
+                lng: -99.03970
+            },
+            map,
+            title: "Marcardor 2"
         }
+        const marcador2 = new google.maps.Marker(propiedadesMarcador2);
+
+        map.setCenter(propiedadesMarcador2.position)
+        const infowindow2 = new google.maps.InfoWindow({
+            content: info2
+        })
+        marcador2.addListener("click", () => {
+            infowindow2.open(map, marcador2);
+        })
+}
     </script>
     <center>
         <div id="restaurantes"></div>
